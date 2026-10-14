@@ -1,0 +1,82 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --ink: #1c2430;
+  --muted: #8a93a3;
+  --line: #e8ecf3;
+  --accent: #2f6bff;
+  --ok: #1fb877;
+  --warn: #f5a623;
+  --bad: #ef4d56;
+  --shadow: 0 6px 24px rgba(28, 36, 48, 0.06);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.hero {
+  background: linear-gradient(135deg, #2f6bff 0%, #6a4bff 100%);
+  color: #fff;
+  padding: 38px 0 30px;
+}
+.hero h1 { margin: 0 0 6px; font-size: 30px; letter-spacing: 0.5px; }
+.hero .sub { margin: 0; opacity: 0.9; font-size: 14px; }
+.headline {
+  margin-top: 18px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 26px auto;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.card h2 { margin: 0 0 12px; font-size: 17px; }
+.hint { color: var(--muted); font-size: 12.5px; margin: -4px 0 12px; line-height: 1.5; }
+.muted { color: var(--muted); }
+.kv { display: grid; grid-template-columns: 120px 1fr; gap: 6px 10px; font-size: 13.5px; }
+.kv .k { color: var(--muted); }
+.kv .v { font-weight: 500; word-break: break-all; }
+#map { height: 220px; margin-top: 14px; border-radius: 12px; border: 1px solid var(--line); }
+.risk-score {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 4px 0 10px;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.badge.ok { background: #e7f8f0; color: var(--ok); }
+.badge.warn { background: #fdf2dc; color: #b9791a; }
+.badge.bad { background: #fdeaec; color: var(--bad); }
+.row-ok { color: var(--ok); font-weight: 600; }
+.row-bad { color: var(--bad); font-weight: 600; }
+.foot { color: var(--muted); font-size: 12px; padding-bottom: 40px; text-align: center; }
+.tag-ip {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #eef2fb;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }

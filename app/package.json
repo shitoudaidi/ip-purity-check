@@ -1,0 +1,12 @@
+{
+  "name": "ip-purity-check",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local self-hosted IP purity check — detect geo, risk, WebRTC leak, fingerprint, DNS/exit consistency. Zero-dependency Node service.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

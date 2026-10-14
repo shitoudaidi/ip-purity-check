@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IP 纯净度检测 · IP Purity Check</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>IP 纯净度检测</h1>
+      <p class="sub">一键式检测 IP 定位、风险、指纹与泄露 — 本地自托管版</p>
+      <div id="headline" class="headline">正在检测…</div>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card" id="card-geo">
+      <h2>IP 定位信息</h2>
+      <div class="kv" id="geo-body"><span class="muted">加载中…</span></div>
+      <div id="map"></div>
+    </section>
+
+    <section class="card" id="card-risk">
+      <h2>IP 风险检测</h2>
+      <div class="risk-score" id="risk-score">—</div>
+      <div class="badges" id="risk-badges"></div>
+      <div class="kv" id="risk-body"></div>
+    </section>
+
+    <section class="card" id="card-webrtc">
+      <h2>WebRTC 泄露检测</h2>
+      <p class="hint">通过 STUN 收集 ICE 候选，提取本机真实 IP。若发现与出口 IP 不同的「公网」地址，说明 WebRTC 已泄露真实网络。</p>
+      <div class="kv" id="webrtc-body"><span class="muted">检测中…</span></div>
+    </section>
+
+    <section class="card" id="card-leak">
+      <h2>出口一致性 / IP Leak</h2>
+      <p class="hint">对比「服务端看到的 IP」「浏览器回显的出口 IP」「WebRTC 暴露的 IP」。三者不一致即存在代理 / VPN 穿透或泄露。</p>
+      <div class="kv" id="leak-body"><span class="muted">检测中…</span></div>
+    </section>
+
+    <section class="card" id="card-fp">
+      <h2>浏览器指纹</h2>
+      <p class="hint">基于 FingerprintJS 采集设备/浏览器特征，生成稳定指纹哈希。</p>
+      <div class="kv" id="fp-body"><span class="muted">采集指纹中…</span></div>
+    </section>
+
+    <section class="card" id="card-dns">
+      <h2>DNS 泄露检测</h2>
+      <p class="hint">对比多个 IP 回显源的一致性。若不同解析出口返回不同 IP，或 DNS 出口与流量出口不一致，则存在 DNS 泄露迹象。</p>
+      <div class="kv" id="dns-body"><span class="muted">检测中…</span></div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <span>数据来源：ipwho.is · ip-api.com · api.ipify.org（免费、无需密钥）。WebRTC / 指纹为浏览器端实测。</span>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fingerprintjs.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
